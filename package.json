@@ -1,0 +1,9 @@
+{
+  "name": "onlyfa-root",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm --prefix app install",
+    "build": "npm --prefix app run build",
+    "start": "npm --prefix app run preview -- --host 0.0.0.0 --port $PORT"
+  }
+}
