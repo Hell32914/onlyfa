@@ -1,14 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
 import { TrendingUp, DollarSign, Award } from 'lucide-react';
+import CountUp from '../components/CountUp';
 
 interface StatCardProps {
-  value: string;
+  value: number;
   label: string;
   icon: React.ReactNode;
   delay: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
 }
 
-const StatCard = ({ value, label, icon, delay }: StatCardProps) => {
+const StatCard = ({ value, label, icon, delay, prefix, suffix, decimals }: StatCardProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -43,9 +47,13 @@ const StatCard = ({ value, label, icon, delay }: StatCardProps) => {
         </div>
       </div>
       <div className="stat-shimmer">
-        <span className="font-display text-4xl sm:text-5xl font-black text-elite-white">
-          {value}
-        </span>
+        <CountUp
+          value={value}
+          prefix={prefix}
+          suffix={suffix}
+          decimals={decimals}
+          className="font-display text-4xl sm:text-5xl font-black text-elite-white"
+        />
       </div>
       <p className="mt-2 text-sm text-elite-gray">{label}</p>
     </div>
@@ -76,18 +84,27 @@ const Proof = () => {
 
   const stats = [
     {
-      value: 'Case studies',
-      label: 'Selected partner highlights',
+      value: 4.2,
+      prefix: '$',
+      suffix: 'M',
+      decimals: 1,
+      label: 'Revenue generated for partners',
       icon: <DollarSign className="w-6 h-6 text-elite-purple" />,
     },
     {
-      value: 'Paid traffic',
-      label: 'Managed ad budgets (details on request)',
+      value: 1.1,
+      prefix: '$',
+      suffix: 'M',
+      decimals: 1,
+      label: 'Ad spend managed (ROAS 4.8x)',
       icon: <TrendingUp className="w-6 h-6 text-elite-purple" />,
     },
     {
-      value: 'Creator outcomes',
-      label: 'Performance varies by creator',
+      value: 0.1,
+      prefix: 'Top ',
+      suffix: '%',
+      decimals: 1,
+      label: 'Average creator percentile',
       icon: <Award className="w-6 h-6 text-elite-purple" />,
     },
   ];
@@ -136,6 +153,9 @@ const Proof = () => {
                   value={stat.value}
                   label={stat.label}
                   icon={stat.icon}
+                  prefix={stat.prefix}
+                  suffix={stat.suffix}
+                  decimals={stat.decimals}
                   delay={index * 150}
                 />
               ))}
@@ -181,6 +201,9 @@ const Proof = () => {
               value={stat.value}
               label={stat.label}
               icon={stat.icon}
+              prefix={stat.prefix}
+              suffix={stat.suffix}
+              decimals={stat.decimals}
               delay={index * 150 + 300}
             />
           ))}
