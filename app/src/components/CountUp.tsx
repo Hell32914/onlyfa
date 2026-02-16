@@ -58,7 +58,13 @@ const CountUp = ({
   const shouldStart = typeof start === 'boolean' ? start : isInView;
 
   useEffect(() => {
-    if (!shouldStart || hasAnimated) {
+    if (!shouldStart) {
+      setHasAnimated(false);
+      setDisplayValue(startValue);
+      return;
+    }
+
+    if (hasAnimated) {
       return;
     }
 

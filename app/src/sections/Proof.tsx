@@ -20,6 +20,7 @@ const StatCard = ({ value, startValue, label, icon, delay, start, prefix, suffix
 
   useEffect(() => {
     if (!start) {
+      setIsVisible(false);
       return;
     }
 
@@ -63,10 +64,7 @@ const Proof = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.1 }
     );
@@ -75,11 +73,8 @@ const Proof = () => {
       observer.observe(sectionRef.current);
     }
 
-    const fallbackTimer = window.setTimeout(() => setIsVisible(true), 1200);
-
     return () => {
       observer.disconnect();
-      window.clearTimeout(fallbackTimer);
     };
   }, []);
 
