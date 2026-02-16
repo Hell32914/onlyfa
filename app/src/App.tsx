@@ -6,6 +6,9 @@ import System from './sections/System';
 import Spotlight from './sections/Spotlight';
 import Community from './sections/Community';
 import Contact from './sections/Contact';
+import Privacy from './sections/Privacy';
+import Disclaimer from './sections/Disclaimer';
+import Footer from './sections/Footer';
 
 function App() {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -55,7 +58,11 @@ function App() {
         <Spotlight />
         <Community />
         <Contact />
+        <Privacy />
+        <Disclaimer />
       </main>
+
+      <Footer />
     </div>
   );
 }

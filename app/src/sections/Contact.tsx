@@ -230,26 +230,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Footer */}
-        <div
-          className={`mt-16 lg:mt-24 pt-8 border-t border-white/10 transition-all duration-700 delay-400 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
-        >
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-7xl mx-auto">
-            <p className="text-sm text-elite-gray">
-              © {new Date().getFullYear()} Elite Creators Agency. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6">
-              <a href="#" className="text-sm text-elite-gray hover:text-elite-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-sm text-elite-gray hover:text-elite-white transition-colors">
-                Terms of Service
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

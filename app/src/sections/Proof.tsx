@@ -185,6 +185,10 @@ const Proof = () => {
             />
           ))}
         </div>
+
+        <p className="mt-8 text-sm text-elite-gray text-center max-w-3xl mx-auto">
+          Results are not guaranteed. Individual performance may vary.
+        </p>
       </div>
     </section>
   );
