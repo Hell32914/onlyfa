@@ -6,6 +6,7 @@ interface CountUpProps {
   decimals?: number;
   prefix?: string;
   suffix?: string;
+  start?: boolean;
   className?: string;
 }
 
@@ -15,10 +16,12 @@ const CountUp = ({
   decimals,
   prefix = '',
   suffix = '',
+  start = true,
   className,
 }: CountUpProps) => {
   const [displayValue, setDisplayValue] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [isInView, setIsInView] = useState(false);
   const spanRef = useRef<HTMLSpanElement>(null);
 
   const precision = useMemo(() => {
@@ -39,7 +42,7 @@ const CountUp = ({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setHasAnimated(true);
+          setIsInView(true);
           observer.disconnect();
         }
       },
@@ -51,9 +54,11 @@ const CountUp = ({
   }, []);
 
   useEffect(() => {
-    if (!hasAnimated) {
+    if (!start || !isInView || hasAnimated) {
       return;
     }
+
+    setHasAnimated(true);
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setDisplayValue(value);
@@ -81,7 +86,7 @@ const CountUp = ({
 
     rafId = window.requestAnimationFrame(step);
     return () => window.cancelAnimationFrame(rafId);
-  }, [duration, hasAnimated, value]);
+  }, [duration, hasAnimated, isInView, start, value]);
 
   const formattedValue = displayValue.toFixed(precision);
 

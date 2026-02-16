@@ -52,6 +52,7 @@ const StatCard = ({ value, label, icon, delay, prefix, suffix, decimals }: StatC
           prefix={prefix}
           suffix={suffix}
           decimals={decimals}
+          start={isVisible}
           className="font-display text-4xl sm:text-5xl font-black text-elite-white"
         />
       </div>
