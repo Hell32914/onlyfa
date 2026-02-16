@@ -37,35 +37,37 @@ const AgeGate = () => {
         </h2>
         <>
           {status === 'no' ? (
-            <p className="text-elite-gray mb-6">
-              {t('ageGate.restricted') as string}
-            </p>
+            <>
+              <p className="text-elite-gray mb-6">
+                {t('ageGate.restricted') as string}
+              </p>
+              <a
+                href="https://www.google.com"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-elite-white neon-border neon-border-hover rounded-xl transition-all"
+              >
+                {t('ageGate.leave') as string}
+              </a>
+            </>
           ) : (
-            <p className="text-elite-gray mb-6">
-              {t('ageGate.prompt') as string}
-            </p>
-          )}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button
-              onClick={handleYes}
-              className="w-full sm:w-auto px-6 py-3 text-sm font-semibold text-elite-white neon-border neon-border-hover rounded-xl transition-all"
-            >
-              {t('ageGate.yes') as string}
-            </button>
-            <button
-              onClick={handleNo}
-              className="w-full sm:w-auto px-6 py-3 text-sm font-semibold text-elite-white/80 border border-white/20 rounded-xl transition-all hover:text-elite-white hover:border-white/40"
-            >
-              {t('ageGate.no') as string}
-            </button>
-          </div>
-          {status === 'no' && (
-            <a
-              href="https://www.google.com"
-              className="mt-4 inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-elite-white neon-border neon-border-hover rounded-xl transition-all"
-            >
-              {t('ageGate.leave') as string}
-            </a>
+            <>
+              <p className="text-elite-gray mb-6">
+                {t('ageGate.prompt') as string}
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button
+                  onClick={handleYes}
+                  className="w-full sm:w-auto px-6 py-3 text-sm font-semibold text-elite-white neon-border neon-border-hover rounded-xl transition-all"
+                >
+                  {t('ageGate.yes') as string}
+                </button>
+                <button
+                  onClick={handleNo}
+                  className="w-full sm:w-auto px-6 py-3 text-sm font-semibold text-elite-white/80 border border-white/20 rounded-xl transition-all hover:text-elite-white hover:border-white/40"
+                >
+                  {t('ageGate.no') as string}
+                </button>
+              </div>
+            </>
           )}
         </>
       </div>

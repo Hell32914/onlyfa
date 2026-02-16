@@ -8,36 +8,26 @@ interface StatCardProps {
   label: string;
   icon: React.ReactNode;
   delay: number;
+  start: boolean;
   prefix?: string;
   suffix?: string;
   decimals?: number;
 }
 
-const StatCard = ({ value, label, icon, delay, prefix, suffix, decimals }: StatCardProps) => {
+const StatCard = ({ value, label, icon, delay, start, prefix, suffix, decimals }: StatCardProps) => {
   const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), delay);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
+    if (!start) {
+      return;
     }
 
-    return () => observer.disconnect();
-  }, [delay]);
+    const timer = window.setTimeout(() => setIsVisible(true), delay);
+    return () => window.clearTimeout(timer);
+  }, [delay, start]);
 
   return (
     <div
-      ref={cardRef}
       className={`glass-card rounded-3xl p-6 sm:p-8 transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
@@ -54,6 +44,7 @@ const StatCard = ({ value, label, icon, delay, prefix, suffix, decimals }: StatC
           suffix={suffix}
           decimals={decimals}
           start={isVisible}
+          duration={2600}
           className="font-display text-4xl sm:text-5xl font-black text-elite-white"
         />
       </div>
@@ -158,6 +149,7 @@ const Proof = () => {
                   suffix={stat.suffix}
                   decimals={stat.decimals}
                   delay={index * 150}
+                  start={isVisible}
                 />
               ))}
             </div>
@@ -206,6 +198,7 @@ const Proof = () => {
               suffix={stat.suffix}
               decimals={stat.decimals}
               delay={index * 150 + 300}
+              start={isVisible}
             />
           ))}
         </div>
