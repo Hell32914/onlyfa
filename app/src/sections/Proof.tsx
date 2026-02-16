@@ -73,7 +73,12 @@ const Proof = () => {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    const fallbackTimer = window.setTimeout(() => setIsVisible(true), 1200);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallbackTimer);
+    };
   }, []);
 
   const stats = [

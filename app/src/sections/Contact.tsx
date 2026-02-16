@@ -14,6 +14,12 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { t } = useI18n();
+  const headline = [
+    t('contact.headline.line1') as string,
+    t('contact.headline.line2') as string,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -80,10 +86,8 @@ const Contact = () => {
             }`}
           >
             {/* Headline */}
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-elite-white uppercase tracking-tight leading-tight mb-6 break-words">
-              {t('contact.headline.line1') as string}
-              <br />
-              <span className="text-gradient">{t('contact.headline.line2') as string}</span>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-elite-white uppercase tracking-tight leading-tight mb-6">
+              <span className="text-gradient">{headline}</span>
             </h2>
 
             {/* Body */}

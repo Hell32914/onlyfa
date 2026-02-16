@@ -169,8 +169,8 @@ const translations = {
     },
     contact: {
       headline: {
-        line1: 'Ready to',
-        line2: 'Scale?',
+        line1: 'Ready to scale?',
+        line2: '',
       },
       body:
         "Apply now. We'll review your brand and reply within 48 hours. Let's discuss how we can transform your content into a thriving business.",
@@ -638,8 +638,8 @@ const translations = {
     },
     contact: {
       headline: {
-        line1: 'Готов(а) к',
-        line2: 'масштабированию?',
+        line1: 'Готов(а) к росту?',
+        line2: '',
       },
       body:
         'Подайте заявку. Мы рассмотрим ваш бренд и ответим в течение 48 часов. Давайте обсудим, как превратить ваш контент в устойчивый бизнес.',
@@ -1107,8 +1107,8 @@ const translations = {
     },
     contact: {
       headline: {
-        line1: 'Listo para',
-        line2: 'escalar?',
+        line1: 'Listo para escalar?',
+        line2: '',
       },
       body:
         'Postula ahora. Revisaremos tu marca y responderemos en 48 horas. Hablemos de como transformar tu contenido en un negocio sostenible.',
