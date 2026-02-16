@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Send, Mail, Globe, Instagram } from 'lucide-react';
+import { Send, Mail, MessageCircle, Phone } from 'lucide-react';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -97,26 +97,26 @@ const Contact = () => {
                   <Mail className="w-5 h-5 text-elite-purple" />
                 </div>
                 <div>
-                  <p className="text-sm text-elite-gray">Email us</p>
-                  <p className="text-elite-white font-medium">hello@elitecreators.agency</p>
+                  <p className="text-sm text-elite-gray">Email</p>
+                  <p className="text-elite-white font-medium">vd.agency2024@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-elite-purple/10 flex items-center justify-center">
-                  <Globe className="w-5 h-5 text-elite-purple" />
+                  <Phone className="w-5 h-5 text-elite-purple" />
                 </div>
                 <div>
-                  <p className="text-sm text-elite-gray">Location</p>
-                  <p className="text-elite-white font-medium">Based worldwide • Working globally</p>
+                  <p className="text-sm text-elite-gray">WhatsApp</p>
+                  <p className="text-elite-white font-medium">+380 75 699 95 31</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-elite-purple/10 flex items-center justify-center">
-                  <Instagram className="w-5 h-5 text-elite-purple" />
+                  <MessageCircle className="w-5 h-5 text-elite-purple" />
                 </div>
                 <div>
-                  <p className="text-sm text-elite-gray">Follow us</p>
-                  <p className="text-elite-white font-medium">@elitecreators</p>
+                  <p className="text-sm text-elite-gray">Telegram</p>
+                  <p className="text-elite-white font-medium">@rosa_flor1</p>
                 </div>
               </div>
             </div>
@@ -187,7 +187,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-elite-white placeholder-elite-gray/50 focus:outline-none focus:border-elite-purple/50 focus:ring-1 focus:ring-elite-purple/50 transition-all"
-                      placeholder="IG / TikTok / OnlyFans"
+                      placeholder="IG / TikTok / Platform"
                     />
                   </div>
 

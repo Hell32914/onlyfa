@@ -7,85 +7,74 @@ const Disclaimer = () => {
             Disclaimer
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-elite-white uppercase tracking-tight leading-tight mb-6">
-            Disclaimer
+            Дисклеймер
           </h2>
+          <p className="text-sm text-elite-gray mb-8">Last updated: February 16, 2026</p>
 
           <div className="space-y-6 text-base sm:text-lg text-elite-gray leading-relaxed">
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                Important Notice
+                Важное уведомление
               </h3>
               <p>
-                V&amp;E Digital Marketing Agency provides marketing, management, and consulting services for content creators. By using our website or applying for cooperation, you acknowledge and agree to the terms outlined in this Disclaimer.
+                V&amp;E AGENCY предоставляет услуги по продвижению контента и консультации в области маркетинга. Пожалуйста, внимательно прочитайте этот дисклеймер перед использованием наших услуг.
               </p>
             </div>
 
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                No Guarantees
+                Отсутствие гарантий
               </h3>
               <ol className="list-decimal list-inside space-y-2">
                 <li>
-                  <span className="text-elite-white font-semibold">No Guaranteed Results.</span> We do not guarantee specific financial results, income levels, follower growth, account ranking, or revenue increases. All performance metrics presented on this website are illustrative and based on past experiences.
+                  <span className="text-elite-white font-semibold">Результаты не гарантированы.</span> Мы не гарантируем конкретные результаты, включая размер заработков, количество подписчиков или рост популярности. Результаты зависят от многих факторов, включая качество контента, активность клиента и рыночные условия.
                 </li>
                 <li>
-                  <span className="text-elite-white font-semibold">Individual Results May Vary.</span> Results achieved by other creators do not guarantee similar outcomes for you. Success depends on multiple factors, including content quality, consistency, audience engagement, market conditions, platform algorithms, and individual effort.
+                  <span className="text-elite-white font-semibold">Индивидуальные результаты.</span> Результаты, полученные другими клиентами, не означают, что вы получите аналогичные результаты. Каждый случай уникален.
                 </li>
                 <li>
-                  <span className="text-elite-white font-semibold">Revenue and Growth Claims.</span> Any revenue figures, growth percentages, or performance statistics displayed on this website are examples of past performance and are not promises or guarantees of future results.
-                </li>
-                <li>
-                  <span className="text-elite-white font-semibold">Business Risk.</span> Content monetization and online marketing involve inherent risks. We do not guarantee return on investment (ROI) or profitability.
+                  <span className="text-elite-white font-semibold">Риск потери средств.</span> Инвестиции в продвижение контента связаны с риском. Мы не гарантируем возврат инвестиций.
                 </li>
               </ol>
             </div>
 
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                Limitation of Liability
+                Ограничение ответственности
               </h3>
-              <p>V&amp;E Digital Marketing Agency is not responsible for:</p>
+              <p>V&amp;E AGENCY не несет ответственность за:</p>
               <ul className="list-disc list-inside space-y-1">
-                <li>Loss of income, revenue, or business opportunities</li>
-                <li>Platform account suspension, restriction, or termination (including OnlyFans or social media platforms)</li>
-                <li>Changes in platform algorithms, policies, or monetization rules</li>
-                <li>Actions taken by third parties</li>
-                <li>Technical issues outside our direct control</li>
+                <li>Потерю данных или доходов</li>
+                <li>Блокировку аккаунта на платформах и в социальных сетях</li>
+                <li>Нарушение правил платформ клиентом</li>
+                <li>Действия третьих лиц</li>
               </ul>
             </div>
 
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                Platform Compliance
+                Соответствие законодательству
               </h3>
-              <p>Creators are solely responsible for complying with:</p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Applicable laws and regulations in their jurisdiction</li>
-                <li>Platform terms of service and community guidelines</li>
-                <li>Age verification and legal eligibility requirements</li>
-              </ul>
               <p>
-                We do not conduct identity verification or payment processing. Such processes are handled directly by the respective platforms (e.g., OnlyFans).
+                Клиент несет полную ответственность за соответствие всем применимым законам и правилам платформ, на которых размещается контент.
               </p>
             </div>
 
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                Service Modifications
+                Изменения в услугах
               </h3>
               <p>
-                We reserve the right to modify, suspend, or discontinue any part of our services at any time without prior notice.
+                Мы оставляем за собой право изменять или прекращать услуги в любое время.
               </p>
             </div>
 
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                Contact
+                Контакты
               </h3>
-              <p>If you have questions regarding this Disclaimer, please contact:</p>
-              <p className="text-elite-white font-medium">V&amp;E Digital Marketing Agency</p>
               <p className="text-elite-white font-medium">Email: vd.agency2024@gmail.com</p>
-              <p className="text-sm text-elite-gray mt-2">Last updated: February 12, 2026</p>
+              <p className="text-elite-white font-medium">Telegram: @rosa_flor1</p>
             </div>
           </div>
         </div>

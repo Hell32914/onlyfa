@@ -54,7 +54,7 @@ const Hero = () => {
           >
             <Sparkles className="w-4 h-4 text-elite-purple" />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-elite-purple">
-              Premium OnlyFans Management
+              Premium Creator Management
             </span>
             <Sparkles className="w-4 h-4 text-elite-purple" />
           </div>
@@ -76,7 +76,7 @@ const Hero = () => {
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            OnlyFans management for creators who want scale—without the chaos.
+            Creator management for brands that want scale—without the chaos.
             We handle strategy, chat, marketing, and monetization. You create.
           </p>
 
@@ -120,7 +120,7 @@ const Hero = () => {
                 </h3>
                 <p className="text-sm text-elite-gray leading-relaxed">
                   From content strategy to fan engagement, we handle every aspect of your 
-                  brand growth. Our team works 24/7 to maximize your revenue potential.
+                  brand growth. Our team works 24/7 to support sustainable performance.
                 </p>
               </div>
             </div>
@@ -140,11 +140,11 @@ const Hero = () => {
               </div>
               <div>
                 <h3 className="font-display text-lg font-bold text-elite-white mb-2">
-                  Proven Results
+                  Case Studies
                 </h3>
                 <p className="text-sm text-elite-gray leading-relaxed">
-                  Our creators average top 0.1% placement with 340%+ revenue growth. 
-                  Join the elite network of successful content entrepreneurs.
+                  We share transparent examples of strategy and execution. Results vary by 
+                  creator, market, and consistency.
                 </p>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const footerLinks = [
+    { label: 'About', href: '/about' },
     { label: 'Services', href: '/#system' },
     { label: 'Results', href: '/#proof' },
     { label: 'Community', href: '/#community' },
@@ -10,13 +11,16 @@ const Footer = () => {
 
   const legalLinks = [
     { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Terms of Use', href: '/terms' },
     { label: 'Disclaimer', href: '/disclaimer' },
+    { label: 'Cookie Policy', href: '/cookies' },
+    { label: 'Contacts', href: '/contacts' },
   ];
 
   return (
     <footer className="relative w-full border-t border-white/10 bg-elite-black/80">
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-12">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-4">
             <Link
               to="/"
@@ -59,7 +63,15 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <p className="text-sm text-elite-gray">Email: vd.agency2024@gmail.com</p>
+          </div>
+
+          <div className="space-y-3">
+            <h4 className="font-display text-lg font-semibold text-elite-white">Contacts</h4>
+            <div className="space-y-2 text-sm text-elite-gray">
+              <p>Email: vd.agency2024@gmail.com</p>
+              <p>WhatsApp: +380 75 699 95 31</p>
+              <p>Telegram: @rosa_flor1</p>
+            </div>
           </div>
         </div>
 

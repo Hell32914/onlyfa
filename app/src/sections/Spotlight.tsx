@@ -56,9 +56,9 @@ const Spotlight = () => {
             <Star className="w-4 h-4" />
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-elite-white uppercase tracking-tight">
-            From launch to top 0.3%
+            From launch to consistent
             <br />
-            <span className="text-gradient">in 90 days.</span>
+            <span className="text-gradient">momentum.</span>
           </h2>
         </div>
 
@@ -89,14 +89,14 @@ const Spotlight = () => {
                 <span className="text-sm text-elite-gray">Growth</span>
                 <span className="text-sm font-medium text-elite-purple flex items-center gap-1">
                   <TrendingUp className="w-4 h-4" />
-                  +340% monthly revenue
+                  Improved monthly revenue (varies)
                 </span>
               </div>
               <div className="flex items-center justify-between py-3">
                 <span className="text-sm text-elite-gray">Fan Base</span>
                 <span className="text-sm font-medium text-elite-white flex items-center gap-1">
                   <Users className="w-4 h-4" />
-                  50K+ engaged followers
+                  Engaged audience (varies)
                 </span>
               </div>
             </div>
@@ -109,11 +109,11 @@ const Spotlight = () => {
             }`}
           >
             <h3 className="font-display text-xl font-bold text-elite-white mb-3">
-              Real numbers. Real strategy. Real results.
+              Real strategy. Real support.
             </h3>
             <p className="text-sm text-elite-gray mb-6 leading-relaxed">
-              See how we transformed Mia's brand from zero to top 0.3% with our 
-              proven growth system. Every creator gets a customized roadmap.
+              See how we build a tailored roadmap from content planning to community 
+              management. Results vary by creator and market conditions.
             </p>
             <button className="group w-full sm:w-auto px-6 py-3 text-sm font-semibold text-elite-white neon-border neon-border-hover rounded-xl transition-all duration-300 flex items-center justify-center gap-2">
               <span>View Case Study</span>

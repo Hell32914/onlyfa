@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import Navigation from '../sections/Navigation';
 import Footer from '../sections/Footer';
+import AgeGate from '../components/AgeGate';
 
 interface LegalLayoutProps {
   children: ReactNode;
@@ -9,6 +10,7 @@ interface LegalLayoutProps {
 const LegalLayout = ({ children }: LegalLayoutProps) => {
   return (
     <div className="relative min-h-screen bg-elite-black overflow-x-hidden">
+      <AgeGate />
       <div className="noise-overlay" />
 
       <div className="glow-orb glow-orb-purple w-[600px] h-[600px] -top-[200px] -left-[200px]" />

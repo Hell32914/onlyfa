@@ -130,8 +130,8 @@ const System = () => {
                   <BarChart3 className="w-6 h-6 text-elite-pink" />
                 </div>
                 <div>
-                  <p className="font-display text-xl font-bold text-elite-white">4.8x</p>
-                  <p className="text-xs text-elite-gray">Average ROAS</p>
+                  <p className="font-display text-xl font-bold text-elite-white">Focus</p>
+                  <p className="text-xs text-elite-gray">Performance varies</p>
                 </div>
               </div>
             </div>
@@ -153,7 +153,7 @@ const System = () => {
             {/* Body */}
             <p className="text-base sm:text-lg text-elite-gray leading-relaxed mb-8 max-w-xl">
               We combine content strategy, paid traffic, and 24/7 community management—
-              so your brand keeps earning while you sleep.
+              so your brand stays consistent and measurable.
             </p>
 
             {/* Features List */}

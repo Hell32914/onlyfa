@@ -18,6 +18,7 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
+    { label: 'About', href: '/about' },
     { label: 'Services', href: '#system' },
     { label: 'Results', href: '#proof' },
     { label: 'Community', href: '#community' },
@@ -25,6 +26,12 @@ const Navigation = () => {
   ];
 
   const scrollToSection = (href: string) => {
+    if (href.startsWith('/')) {
+      navigate(href);
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
     if (location.pathname !== '/') {
       navigate(`/${href}`);
       setIsMobileMenuOpen(false);

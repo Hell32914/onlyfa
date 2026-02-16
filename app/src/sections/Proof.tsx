@@ -76,18 +76,18 @@ const Proof = () => {
 
   const stats = [
     {
-      value: '$4.2M+',
-      label: 'Revenue generated for partners',
+      value: 'Case studies',
+      label: 'Selected partner highlights',
       icon: <DollarSign className="w-6 h-6 text-elite-purple" />,
     },
     {
-      value: '$1.1M',
-      label: 'Ad spend managed (ROAS 4.8x)',
+      value: 'Paid traffic',
+      label: 'Managed ad budgets (details on request)',
       icon: <TrendingUp className="w-6 h-6 text-elite-purple" />,
     },
     {
-      value: 'Top 0.1%',
-      label: 'Average creator percentile',
+      value: 'Creator outcomes',
+      label: 'Performance varies by creator',
       icon: <Award className="w-6 h-6 text-elite-purple" />,
     },
   ];
@@ -124,8 +124,8 @@ const Proof = () => {
             {/* Body */}
             <p className="text-base sm:text-lg text-elite-gray leading-relaxed max-w-xl">
               From content calendar to high-ticket upsells, we run the business side 
-              so you can show up as the brand. Our data-driven approach ensures 
-              consistent growth month after month.
+              so you can show up as the brand. Our data-driven approach supports 
+              steady, measurable progress over time.
             </p>
 
             {/* Stats Grid - Desktop */}
@@ -165,8 +165,8 @@ const Proof = () => {
                   <TrendingUp className="w-5 h-5 text-elite-purple" />
                 </div>
                 <div>
-                  <p className="font-display text-lg font-bold text-elite-white">+340%</p>
-                  <p className="text-xs text-elite-gray">Avg. Revenue Growth</p>
+                  <p className="font-display text-lg font-bold text-elite-white">Case study</p>
+                  <p className="text-xs text-elite-gray">Performance varies</p>
                 </div>
               </div>
             </div>

@@ -8,6 +8,7 @@ import Spotlight from './sections/Spotlight';
 import Community from './sections/Community';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
+import AgeGate from './components/AgeGate';
 
 function App() {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -50,6 +51,7 @@ function App() {
 
   return (
     <div ref={mainRef} className="relative min-h-screen bg-elite-black overflow-x-hidden">
+      <AgeGate />
       {/* Noise overlay */}
       <div className="noise-overlay" />
       
