@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 
 interface CountUpProps {
   value: number;
+  startValue?: number;
   duration?: number;
   decimals?: number;
   prefix?: string;
@@ -12,6 +13,7 @@ interface CountUpProps {
 
 const CountUp = ({
   value,
+  startValue = 0,
   duration = 1800,
   decimals,
   prefix = '',
@@ -19,7 +21,7 @@ const CountUp = ({
   start,
   className,
 }: CountUpProps) => {
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue, setDisplayValue] = useState(startValue);
   const [hasAnimated, setHasAnimated] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const spanRef = useRef<HTMLSpanElement>(null);
@@ -77,7 +79,7 @@ const CountUp = ({
 
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      const nextValue = value * eased;
+      const nextValue = startValue + (value - startValue) * eased;
 
       setDisplayValue(nextValue);
 
@@ -88,7 +90,7 @@ const CountUp = ({
 
     rafId = window.requestAnimationFrame(step);
     return () => window.cancelAnimationFrame(rafId);
-  }, [duration, hasAnimated, shouldStart, value]);
+  }, [duration, hasAnimated, shouldStart, startValue, value]);
 
   const formattedValue = displayValue.toFixed(precision);
 

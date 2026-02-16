@@ -5,6 +5,7 @@ import { useI18n } from '../i18n';
 
 interface StatCardProps {
   value: number;
+  startValue?: number;
   label: string;
   icon: React.ReactNode;
   delay: number;
@@ -14,7 +15,7 @@ interface StatCardProps {
   decimals?: number;
 }
 
-const StatCard = ({ value, label, icon, delay, start, prefix, suffix, decimals }: StatCardProps) => {
+const StatCard = ({ value, startValue, label, icon, delay, start, prefix, suffix, decimals }: StatCardProps) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -40,6 +41,7 @@ const StatCard = ({ value, label, icon, delay, start, prefix, suffix, decimals }
       <div className="stat-shimmer">
         <CountUp
           value={value}
+          startValue={startValue}
           prefix={prefix}
           suffix={suffix}
           decimals={decimals}
@@ -83,7 +85,8 @@ const Proof = () => {
 
   const stats = [
     {
-      value: 4.2,
+      value: 4.4,
+      startValue: 4.2,
       prefix: '$',
       suffix: 'M',
       decimals: 1,
@@ -91,7 +94,8 @@ const Proof = () => {
       icon: <DollarSign className="w-6 h-6 text-elite-purple" />,
     },
     {
-      value: 1.1,
+      value: 1.3,
+      startValue: 1.1,
       prefix: '$',
       suffix: 'M',
       decimals: 1,
@@ -99,7 +103,8 @@ const Proof = () => {
       icon: <TrendingUp className="w-6 h-6 text-elite-purple" />,
     },
     {
-      value: 0.1,
+      value: 0.2,
+      startValue: 0.1,
       prefix: t('proof.stats.percentilePrefix') as string,
       suffix: t('proof.stats.percentileSuffix') as string,
       decimals: 1,
