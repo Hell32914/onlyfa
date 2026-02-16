@@ -16,7 +16,7 @@ const CountUp = ({
   decimals,
   prefix = '',
   suffix = '',
-  start = true,
+  start,
   className,
 }: CountUpProps) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -53,8 +53,10 @@ const CountUp = ({
     return () => observer.disconnect();
   }, []);
 
+  const shouldStart = typeof start === 'boolean' ? start : isInView;
+
   useEffect(() => {
-    if (!start || !isInView || hasAnimated) {
+    if (!shouldStart || hasAnimated) {
       return;
     }
 
@@ -86,7 +88,7 @@ const CountUp = ({
 
     rafId = window.requestAnimationFrame(step);
     return () => window.cancelAnimationFrame(rafId);
-  }, [duration, hasAnimated, isInView, start, value]);
+  }, [duration, hasAnimated, shouldStart, value]);
 
   const formattedValue = displayValue.toFixed(precision);
 
