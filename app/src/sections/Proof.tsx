@@ -153,6 +153,7 @@ const Proof = () => {
                 <StatCard
                   key={stat.label}
                   value={stat.value}
+                  startValue={stat.startValue}
                   label={stat.label}
                   icon={stat.icon}
                   prefix={stat.prefix}
@@ -202,6 +203,7 @@ const Proof = () => {
             <StatCard
               key={stat.label}
               value={stat.value}
+              startValue={stat.startValue}
               label={stat.label}
               icon={stat.icon}
               prefix={stat.prefix}
