@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { TrendingUp, DollarSign, Award } from 'lucide-react';
 import CountUp from '../components/CountUp';
+import { useI18n } from '../i18n';
 
 interface StatCardProps {
   value: number;
@@ -64,6 +65,7 @@ const StatCard = ({ value, label, icon, delay, prefix, suffix, decimals }: StatC
 const Proof = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -89,7 +91,7 @@ const Proof = () => {
       prefix: '$',
       suffix: 'M',
       decimals: 1,
-      label: 'Revenue generated for partners',
+      label: t('proof.stats.revenue') as string,
       icon: <DollarSign className="w-6 h-6 text-elite-purple" />,
     },
     {
@@ -97,15 +99,15 @@ const Proof = () => {
       prefix: '$',
       suffix: 'M',
       decimals: 1,
-      label: 'Ad spend managed (ROAS 4.8x)',
+      label: t('proof.stats.adSpend') as string,
       icon: <TrendingUp className="w-6 h-6 text-elite-purple" />,
     },
     {
       value: 0.1,
-      prefix: 'Top ',
-      suffix: '%',
+      prefix: t('proof.stats.percentilePrefix') as string,
+      suffix: t('proof.stats.percentileSuffix') as string,
       decimals: 1,
-      label: 'Average creator percentile',
+      label: t('proof.stats.percentile') as string,
       icon: <Award className="w-6 h-6 text-elite-purple" />,
     },
   ];
@@ -129,21 +131,19 @@ const Proof = () => {
           >
             {/* Eyebrow */}
             <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-elite-purple mb-4">
-              Proof
+              {t('proof.eyebrow') as string}
             </span>
 
             {/* Headline */}
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-elite-white uppercase tracking-tight leading-tight mb-6">
-              We don't guess.
+              {t('proof.headline.line1') as string}
               <br />
-              <span className="text-gradient">We scale.</span>
+              <span className="text-gradient">{t('proof.headline.line2') as string}</span>
             </h2>
 
             {/* Body */}
             <p className="text-base sm:text-lg text-elite-gray leading-relaxed max-w-xl">
-              From content calendar to high-ticket upsells, we run the business side 
-              so you can show up as the brand. Our data-driven approach supports 
-              steady, measurable progress over time.
+              {t('proof.body') as string}
             </p>
 
             {/* Stats Grid - Desktop */}
@@ -172,7 +172,7 @@ const Proof = () => {
             <div className="relative aspect-[3/4] rounded-3xl overflow-hidden">
               <img
                 src="/proof-portrait.jpg"
-                alt="Success story"
+                alt={t('proof.alt') as string}
                 className="w-full h-full object-cover"
               />
               {/* Neon edge line */}
@@ -186,8 +186,8 @@ const Proof = () => {
                   <TrendingUp className="w-5 h-5 text-elite-purple" />
                 </div>
                 <div>
-                  <p className="font-display text-lg font-bold text-elite-white">Case study</p>
-                  <p className="text-xs text-elite-gray">Performance varies</p>
+                  <p className="font-display text-lg font-bold text-elite-white">{t('proof.badge.title') as string}</p>
+                  <p className="text-xs text-elite-gray">{t('proof.badge.subtitle') as string}</p>
                 </div>
               </div>
             </div>
@@ -211,7 +211,7 @@ const Proof = () => {
         </div>
 
         <p className="mt-8 text-sm text-elite-gray text-center max-w-3xl mx-auto">
-          Results are not guaranteed. Individual performance may vary.
+          {t('proof.disclaimer') as string}
         </p>
       </div>
     </section>

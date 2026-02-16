@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Calendar, Target, MessageCircle, BarChart3, Check } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 interface FeatureProps {
   title: string;
@@ -54,6 +55,7 @@ const Feature = ({ title, description, icon, delay }: FeatureProps) => {
 const System = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -75,23 +77,23 @@ const System = () => {
 
   const features = [
     {
-      title: 'Content Strategy',
-      description: 'Weekly shoots, editing, and posting calendar optimized for maximum engagement.',
+      title: t('system.features.content.title') as string,
+      description: t('system.features.content.description') as string,
       icon: <Calendar className="w-5 h-5 text-elite-purple" />,
     },
     {
-      title: 'Paid Traffic',
-      description: 'Meta + Reddit + native ads with strict compliance and high ROAS.',
+      title: t('system.features.paid.title') as string,
+      description: t('system.features.paid.description') as string,
       icon: <Target className="w-5 h-5 text-elite-purple" />,
     },
     {
-      title: 'Community Management',
-      description: 'Fan retention, upsells, and brand safety handled 24/7 by our expert team.',
+      title: t('system.features.community.title') as string,
+      description: t('system.features.community.description') as string,
       icon: <MessageCircle className="w-5 h-5 text-elite-purple" />,
     },
     {
-      title: 'Weekly Optimization',
-      description: 'Data-led decisions, A/B testing, and pricing experiments for continuous growth.',
+      title: t('system.features.optimization.title') as string,
+      description: t('system.features.optimization.description') as string,
       icon: <BarChart3 className="w-5 h-5 text-elite-purple" />,
     },
   ];
@@ -116,7 +118,7 @@ const System = () => {
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
               <img
                 src="/system-portrait.jpg"
-                alt="Our system"
+                alt={t('system.alt') as string}
                 className="w-full h-full object-cover"
               />
               {/* Neon top edge */}
@@ -130,8 +132,8 @@ const System = () => {
                   <BarChart3 className="w-6 h-6 text-elite-pink" />
                 </div>
                 <div>
-                  <p className="font-display text-xl font-bold text-elite-white">Focus</p>
-                  <p className="text-xs text-elite-gray">Performance varies</p>
+                  <p className="font-display text-xl font-bold text-elite-white">{t('system.card.title') as string}</p>
+                  <p className="text-xs text-elite-gray">{t('system.card.subtitle') as string}</p>
                 </div>
               </div>
             </div>
@@ -145,15 +147,14 @@ const System = () => {
           >
             {/* Headline */}
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-elite-white uppercase tracking-tight leading-tight mb-6">
-              A system built
+              {t('system.headline.line1') as string}
               <br />
-              <span className="text-gradient">for growth.</span>
+              <span className="text-gradient">{t('system.headline.line2') as string}</span>
             </h2>
 
             {/* Body */}
             <p className="text-base sm:text-lg text-elite-gray leading-relaxed mb-8 max-w-xl">
-              We combine content strategy, paid traffic, and 24/7 community management—
-              so your brand stays consistent and measurable.
+              {t('system.body') as string}
             </p>
 
             {/* Features List */}

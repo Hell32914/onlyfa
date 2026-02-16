@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     // Trigger entrance animations after mount
@@ -34,7 +36,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src="/hero-portrait.jpg"
-          alt="Hero background"
+          alt={t('hero.alt') as string}
           className="w-full h-full object-cover scale-105"
         />
         {/* Gradient overlay */}
@@ -54,7 +56,7 @@ const Hero = () => {
           >
             <Sparkles className="w-4 h-4 text-elite-purple" />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-elite-purple">
-              Premium Creator Management
+              {t('hero.eyebrow') as string}
             </span>
             <Sparkles className="w-4 h-4 text-elite-purple" />
           </div>
@@ -65,9 +67,9 @@ const Hero = () => {
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            Turn Content
+            {t('hero.headline.line1') as string}
             <br />
-            <span className="text-gradient">Into Empire</span>
+            <span className="text-gradient">{t('hero.headline.line2') as string}</span>
           </h1>
 
           {/* Subheadline */}
@@ -76,8 +78,7 @@ const Hero = () => {
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            Creator management for brands that want scale—without the chaos.
-            We handle strategy, chat, marketing, and monetization. You create.
+            {t('hero.subheadline') as string}
           </p>
 
           {/* CTA Buttons */}
@@ -90,14 +91,14 @@ const Hero = () => {
               onClick={scrollToContact}
               className="group relative px-8 py-4 text-base font-semibold text-elite-white neon-border neon-border-hover rounded-2xl transition-all duration-300 flex items-center gap-3"
             >
-              <span>Apply Now</span>
+              <span>{t('hero.ctaPrimary') as string}</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
               onClick={scrollToSystem}
               className="px-8 py-4 text-base font-medium text-elite-white/80 hover:text-elite-white transition-colors flex items-center gap-2"
             >
-              See how it works
+              {t('hero.ctaSecondary') as string}
             </button>
           </div>
         </div>
@@ -116,11 +117,10 @@ const Hero = () => {
               </div>
               <div>
                 <h3 className="font-display text-lg font-bold text-elite-white mb-2">
-                  Full-Service Management
+                  {t('hero.cardOne.title') as string}
                 </h3>
                 <p className="text-sm text-elite-gray leading-relaxed">
-                  From content strategy to fan engagement, we handle every aspect of your 
-                  brand growth. Our team works 24/7 to support sustainable performance.
+                  {t('hero.cardOne.body') as string}
                 </p>
               </div>
             </div>
@@ -140,11 +140,10 @@ const Hero = () => {
               </div>
               <div>
                 <h3 className="font-display text-lg font-bold text-elite-white mb-2">
-                  Case Studies
+                  {t('hero.cardTwo.title') as string}
                 </h3>
                 <p className="text-sm text-elite-gray leading-relaxed">
-                  We share transparent examples of strategy and execution. Results vary by 
-                  creator, market, and consistency.
+                  {t('hero.cardTwo.body') as string}
                 </p>
               </div>
             </div>

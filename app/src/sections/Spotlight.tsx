@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Star, TrendingUp, Users } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 const Spotlight = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,7 +34,7 @@ const Spotlight = () => {
       <div className="absolute inset-0 z-0">
         <img
           src="/spotlight-portrait.jpg"
-          alt="Featured partner"
+          alt={t('spotlight.alt') as string}
           className={`w-full h-full object-cover transition-transform duration-1000 ${
             isVisible ? 'scale-100' : 'scale-110'
           }`}
@@ -52,13 +54,13 @@ const Spotlight = () => {
         >
           <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-elite-purple mb-4">
             <Star className="w-4 h-4" />
-            Featured Partner
+            {t('spotlight.eyebrow') as string}
             <Star className="w-4 h-4" />
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-elite-white uppercase tracking-tight">
-            From launch to consistent
+            {t('spotlight.headline.line1') as string}
             <br />
-            <span className="text-gradient">momentum.</span>
+            <span className="text-gradient">{t('spotlight.headline.line2') as string}</span>
           </h2>
         </div>
 
@@ -75,28 +77,28 @@ const Spotlight = () => {
                 <span className="font-display text-2xl font-black text-white">M</span>
               </div>
               <div>
-                <h3 className="font-display text-2xl font-bold text-elite-white">MIA</h3>
-                <p className="text-sm text-elite-gray">Fashion + Lifestyle Creator</p>
+                <h3 className="font-display text-2xl font-bold text-elite-white">{t('spotlight.profile.name') as string}</h3>
+                <p className="text-sm text-elite-gray">{t('spotlight.profile.role') as string}</p>
               </div>
             </div>
 
             <div className="space-y-4">
               <div className="flex items-center justify-between py-3 border-b border-white/10">
-                <span className="text-sm text-elite-gray">Niche</span>
-                <span className="text-sm font-medium text-elite-white">Fashion + Lifestyle</span>
+                <span className="text-sm text-elite-gray">{t('spotlight.profile.labels.niche') as string}</span>
+                <span className="text-sm font-medium text-elite-white">{t('spotlight.profile.values.niche') as string}</span>
               </div>
               <div className="flex items-center justify-between py-3 border-b border-white/10">
-                <span className="text-sm text-elite-gray">Growth</span>
+                <span className="text-sm text-elite-gray">{t('spotlight.profile.labels.growth') as string}</span>
                 <span className="text-sm font-medium text-elite-purple flex items-center gap-1">
                   <TrendingUp className="w-4 h-4" />
-                  Improved monthly revenue (varies)
+                  {t('spotlight.profile.values.growth') as string}
                 </span>
               </div>
               <div className="flex items-center justify-between py-3">
-                <span className="text-sm text-elite-gray">Fan Base</span>
+                <span className="text-sm text-elite-gray">{t('spotlight.profile.labels.fanBase') as string}</span>
                 <span className="text-sm font-medium text-elite-white flex items-center gap-1">
                   <Users className="w-4 h-4" />
-                  Engaged audience (varies)
+                  {t('spotlight.profile.values.fanBase') as string}
                 </span>
               </div>
             </div>
@@ -109,14 +111,13 @@ const Spotlight = () => {
             }`}
           >
             <h3 className="font-display text-xl font-bold text-elite-white mb-3">
-              Real strategy. Real support.
+              {t('spotlight.cta.title') as string}
             </h3>
             <p className="text-sm text-elite-gray mb-6 leading-relaxed">
-              See how we build a tailored roadmap from content planning to community 
-              management. Results vary by creator and market conditions.
+              {t('spotlight.cta.body') as string}
             </p>
             <button className="group w-full sm:w-auto px-6 py-3 text-sm font-semibold text-elite-white neon-border neon-border-hover rounded-xl transition-all duration-300 flex items-center justify-center gap-2">
-              <span>View Case Study</span>
+              <span>{t('spotlight.cta.button') as string}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>

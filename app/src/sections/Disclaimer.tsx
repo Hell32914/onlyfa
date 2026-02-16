@@ -1,80 +1,77 @@
+import { useI18n } from '../i18n';
+
 const Disclaimer = () => {
+  const { t } = useI18n();
+
   return (
     <section id="disclaimer" className="relative py-20 sm:py-28 lg:py-32 w-full">
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-4xl mx-auto">
           <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-elite-purple mb-4">
-            Disclaimer
+            {t('disclaimer.eyebrow') as string}
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-elite-white uppercase tracking-tight leading-tight mb-6">
-            Дисклеймер
+            {t('disclaimer.title') as string}
           </h2>
-          <p className="text-sm text-elite-gray mb-8">Last updated: February 16, 2026</p>
+          <p className="text-sm text-elite-gray mb-8">{t('disclaimer.updated') as string}</p>
 
           <div className="space-y-6 text-base sm:text-lg text-elite-gray leading-relaxed">
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                Важное уведомление
+                {t('disclaimer.notice.title') as string}
               </h3>
               <p>
-                V&amp;E AGENCY предоставляет услуги по продвижению контента и консультации в области маркетинга. Пожалуйста, внимательно прочитайте этот дисклеймер перед использованием наших услуг.
+                {t('disclaimer.notice.p1') as string}
               </p>
             </div>
 
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                Отсутствие гарантий
+                {t('disclaimer.guarantees.title') as string}
               </h3>
               <ol className="list-decimal list-inside space-y-2">
-                <li>
-                  <span className="text-elite-white font-semibold">Результаты не гарантированы.</span> Мы не гарантируем конкретные результаты, включая размер заработков, количество подписчиков или рост популярности. Результаты зависят от многих факторов, включая качество контента, активность клиента и рыночные условия.
-                </li>
-                <li>
-                  <span className="text-elite-white font-semibold">Индивидуальные результаты.</span> Результаты, полученные другими клиентами, не означают, что вы получите аналогичные результаты. Каждый случай уникален.
-                </li>
-                <li>
-                  <span className="text-elite-white font-semibold">Риск потери средств.</span> Инвестиции в продвижение контента связаны с риском. Мы не гарантируем возврат инвестиций.
-                </li>
+                {(t('disclaimer.guarantees.items') as string[]).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ol>
             </div>
 
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                Ограничение ответственности
+                {t('disclaimer.liability.title') as string}
               </h3>
-              <p>V&amp;E AGENCY не несет ответственность за:</p>
+              <p>{t('disclaimer.liability.p1') as string}</p>
               <ul className="list-disc list-inside space-y-1">
-                <li>Потерю данных или доходов</li>
-                <li>Блокировку аккаунта на платформах и в социальных сетях</li>
-                <li>Нарушение правил платформ клиентом</li>
-                <li>Действия третьих лиц</li>
+                {(t('disclaimer.liability.items') as string[]).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
 
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                Соответствие законодательству
+                {t('disclaimer.compliance.title') as string}
               </h3>
               <p>
-                Клиент несет полную ответственность за соответствие всем применимым законам и правилам платформ, на которых размещается контент.
+                {t('disclaimer.compliance.p1') as string}
               </p>
             </div>
 
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                Изменения в услугах
+                {t('disclaimer.changes.title') as string}
               </h3>
               <p>
-                Мы оставляем за собой право изменять или прекращать услуги в любое время.
+                {t('disclaimer.changes.p1') as string}
               </p>
             </div>
 
             <div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
-                Контакты
+                {t('disclaimer.contact.title') as string}
               </h3>
-              <p className="text-elite-white font-medium">Email: vd.agency2024@gmail.com</p>
-              <p className="text-elite-white font-medium">Telegram: @rosa_flor1</p>
+              <p className="text-elite-white font-medium">{t('disclaimer.contact.emailLabel') as string} vd.agency2024@gmail.com</p>
+              <p className="text-elite-white font-medium">{t('disclaimer.contact.telegramLabel') as string} @rosa_flor1</p>
             </div>
           </div>
         </div>

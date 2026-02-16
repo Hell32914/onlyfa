@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Quote, Heart, MessageCircle, Users } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 interface TestimonialProps {
   quote: string;
@@ -55,6 +56,7 @@ const Testimonial = ({ quote, author, delay }: TestimonialProps) => {
 const Community = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -74,20 +76,7 @@ const Community = () => {
     return () => observer.disconnect();
   }, []);
 
-  const testimonials = [
-    {
-      quote: "They turned my page into a real business. I went from struggling to find time for everything to having a team that handles it all.",
-      author: "Lena R.",
-    },
-    {
-      quote: "I finally have boundaries—and bigger months. The team respects my time while maximizing my earnings.",
-      author: "Sofia M.",
-    },
-    {
-      quote: "The team feels like family, but professional. They truly care about my success and it shows in the results.",
-      author: "Ava T.",
-    },
-  ];
+  const testimonials = t('community.testimonials') as Array<{ quote: string; author: string }>;
 
   return (
     <section
@@ -108,31 +97,29 @@ const Community = () => {
           >
             {/* Headline */}
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-elite-white uppercase tracking-tight leading-tight mb-6">
-              You're not doing
+              {t('community.headline.line1') as string}
               <br />
-              <span className="text-gradient">this alone.</span>
+              <span className="text-gradient">{t('community.headline.line2') as string}</span>
             </h2>
 
             {/* Body */}
             <p className="text-base sm:text-lg text-elite-gray leading-relaxed mb-8 max-w-xl">
-              Our creators get access to a private network, weekly strategy calls, 
-              and a support team that actually replies. Join a community of 
-              ambitious creators who lift each other up.
+              {t('community.body') as string}
             </p>
 
             {/* Feature pills */}
             <div className="flex flex-wrap gap-3">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
                 <Users className="w-4 h-4 text-elite-purple" />
-                <span className="text-sm text-elite-white">Private Network</span>
+                <span className="text-sm text-elite-white">{t('community.pills.network') as string}</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
                 <MessageCircle className="w-4 h-4 text-elite-purple" />
-                <span className="text-sm text-elite-white">Weekly Calls</span>
+                <span className="text-sm text-elite-white">{t('community.pills.calls') as string}</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
                 <Heart className="w-4 h-4 text-elite-purple" />
-                <span className="text-sm text-elite-white">24/7 Support</span>
+                <span className="text-sm text-elite-white">{t('community.pills.support') as string}</span>
               </div>
             </div>
           </div>
@@ -146,7 +133,7 @@ const Community = () => {
             <div className="relative aspect-video rounded-3xl overflow-hidden">
               <img
                 src="/community-top.jpg"
-                alt="Community"
+                alt={t('community.altTop') as string}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-elite-black/60 to-transparent" />
@@ -154,7 +141,7 @@ const Community = () => {
             <div className="relative aspect-video rounded-3xl overflow-hidden">
               <img
                 src="/community-bottom.jpg"
-                alt="Community member"
+                alt={t('community.altBottom') as string}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-elite-black/60 to-transparent" />

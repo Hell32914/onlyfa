@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useI18n, type Language } from '../i18n';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { language, setLanguage, t } = useI18n();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,13 +19,17 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLabels = t('nav.links') as Record<string, string>;
   const navLinks = [
-    { label: 'About', href: '/about' },
-    { label: 'Services', href: '#system' },
-    { label: 'Results', href: '#proof' },
-    { label: 'Community', href: '#community' },
-    { label: 'Contact', href: '#contact' },
+    { key: 'about', href: '/about' },
+    { key: 'services', href: '#system' },
+    { key: 'results', href: '#proof' },
+    { key: 'community', href: '#community' },
+    { key: 'contact', href: '#contact' },
   ];
+
+  const languageOptions = t('language.options') as Record<Language, { short: string; name: string }>;
+  const languageOrder: Language[] = ['en', 'ru', 'es'];
 
   const scrollToSection = (href: string) => {
     if (href.startsWith('/')) {
@@ -68,13 +74,40 @@ const Navigation = () => {
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
-                  key={link.label}
+                  key={link.key}
                   onClick={() => scrollToSection(link.href)}
                   className="text-sm font-medium text-elite-gray hover:text-elite-white transition-colors tracking-wide"
                 >
-                  {link.label}
+                  {navLabels[link.key]}
                 </button>
               ))}
+            </div>
+
+            <div
+              className="hidden md:flex items-center gap-1 rounded-xl border border-white/10 bg-white/5 p-1"
+              role="group"
+              aria-label={t('language.label') as string}
+            >
+              {languageOrder.map((code) => {
+                const option = languageOptions[code];
+                const isActive = language === code;
+
+                return (
+                  <button
+                    key={code}
+                    onClick={() => setLanguage(code)}
+                    className={`px-2.5 py-1 text-xs font-semibold rounded-lg transition-colors ${
+                      isActive
+                        ? 'bg-white/10 text-elite-white'
+                        : 'text-elite-gray hover:text-elite-white'
+                    }`}
+                    aria-pressed={isActive}
+                    aria-label={option.name}
+                  >
+                    {option.short}
+                  </button>
+                );
+              })}
             </div>
 
             {/* CTA Button */}
@@ -83,7 +116,7 @@ const Navigation = () => {
                 onClick={() => scrollToSection('#contact')}
                 className="px-6 py-2.5 text-sm font-semibold text-elite-white neon-border neon-border-hover rounded-xl transition-all duration-300"
               >
-                Apply Now
+                {t('nav.apply') as string}
               </button>
             </div>
 
@@ -111,19 +144,45 @@ const Navigation = () => {
         <div className="relative flex flex-col items-center justify-center h-full gap-8">
           {navLinks.map((link, index) => (
             <button
-              key={link.label}
+              key={link.key}
               onClick={() => scrollToSection(link.href)}
               className="text-2xl font-display font-semibold text-elite-white hover:text-elite-purple transition-colors"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {link.label}
+              {navLabels[link.key]}
             </button>
           ))}
+          <div
+            className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-1"
+            role="group"
+            aria-label={t('language.label') as string}
+          >
+            {languageOrder.map((code) => {
+              const option = languageOptions[code];
+              const isActive = language === code;
+
+              return (
+                <button
+                  key={code}
+                  onClick={() => setLanguage(code)}
+                  className={`px-3 py-1 text-sm font-semibold rounded-lg transition-colors ${
+                    isActive
+                      ? 'bg-white/10 text-elite-white'
+                      : 'text-elite-gray hover:text-elite-white'
+                  }`}
+                  aria-pressed={isActive}
+                  aria-label={option.name}
+                >
+                  {option.short}
+                </button>
+              );
+            })}
+          </div>
           <button
             onClick={() => scrollToSection('#contact')}
             className="mt-4 px-8 py-3 text-lg font-semibold text-elite-white neon-border rounded-xl"
           >
-            Apply Now
+            {t('nav.apply') as string}
           </button>
         </div>
       </div>

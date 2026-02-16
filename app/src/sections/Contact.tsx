@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Send, Mail, MessageCircle, Phone } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,6 +13,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -60,7 +62,7 @@ const Contact = () => {
       <div className="absolute inset-0 z-0">
         <img
           src="/cta-portrait.jpg"
-          alt="Contact background"
+          alt={t('contact.alt') as string}
           className="w-full h-full object-cover"
         />
         {/* Gradient overlays */}
@@ -79,15 +81,14 @@ const Contact = () => {
           >
             {/* Headline */}
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-elite-white uppercase tracking-tight leading-tight mb-6">
-              Ready to
+              {t('contact.headline.line1') as string}
               <br />
-              <span className="text-gradient">Scale?</span>
+              <span className="text-gradient">{t('contact.headline.line2') as string}</span>
             </h2>
 
             {/* Body */}
             <p className="text-base sm:text-lg text-elite-gray leading-relaxed mb-8 max-w-lg">
-              Apply now. We'll review your brand and reply within 48 hours. 
-              Let's discuss how we can transform your content into a thriving business.
+              {t('contact.body') as string}
             </p>
 
             {/* Contact info */}
@@ -97,7 +98,7 @@ const Contact = () => {
                   <Mail className="w-5 h-5 text-elite-purple" />
                 </div>
                 <div>
-                  <p className="text-sm text-elite-gray">Email</p>
+                  <p className="text-sm text-elite-gray">{t('contact.infoLabels.email') as string}</p>
                   <p className="text-elite-white font-medium">vd.agency2024@gmail.com</p>
                 </div>
               </div>
@@ -106,7 +107,7 @@ const Contact = () => {
                   <Phone className="w-5 h-5 text-elite-purple" />
                 </div>
                 <div>
-                  <p className="text-sm text-elite-gray">WhatsApp</p>
+                  <p className="text-sm text-elite-gray">{t('contact.infoLabels.whatsapp') as string}</p>
                   <p className="text-elite-white font-medium">+380 75 699 95 31</p>
                 </div>
               </div>
@@ -115,7 +116,7 @@ const Contact = () => {
                   <MessageCircle className="w-5 h-5 text-elite-purple" />
                 </div>
                 <div>
-                  <p className="text-sm text-elite-gray">Telegram</p>
+                  <p className="text-sm text-elite-gray">{t('contact.infoLabels.telegram') as string}</p>
                   <p className="text-elite-white font-medium">@rosa_flor1</p>
                 </div>
               </div>
@@ -135,17 +136,17 @@ const Contact = () => {
                     <Send className="w-8 h-8 text-elite-purple" />
                   </div>
                   <h3 className="font-display text-2xl font-bold text-elite-white mb-3">
-                    Application Received!
+                    {t('contact.form.submittedTitle') as string}
                   </h3>
                   <p className="text-elite-gray">
-                    We'll review your brand and get back to you within 48 hours.
+                    {t('contact.form.submittedBody') as string}
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-elite-gray mb-2">
-                      Name
+                      {t('contact.form.nameLabel') as string}
                     </label>
                     <input
                       type="text"
@@ -155,13 +156,13 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-elite-white placeholder-elite-gray/50 focus:outline-none focus:border-elite-purple/50 focus:ring-1 focus:ring-elite-purple/50 transition-all"
-                      placeholder="Your full name"
+                      placeholder={t('contact.form.namePlaceholder') as string}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-elite-gray mb-2">
-                      Email
+                      {t('contact.form.emailLabel') as string}
                     </label>
                     <input
                       type="email"
@@ -171,13 +172,13 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-elite-white placeholder-elite-gray/50 focus:outline-none focus:border-elite-purple/50 focus:ring-1 focus:ring-elite-purple/50 transition-all"
-                      placeholder="your@email.com"
+                      placeholder={t('contact.form.emailPlaceholder') as string}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="handle" className="block text-sm font-medium text-elite-gray mb-2">
-                      Social Handle
+                      {t('contact.form.handleLabel') as string}
                     </label>
                     <input
                       type="text"
@@ -187,13 +188,13 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-elite-white placeholder-elite-gray/50 focus:outline-none focus:border-elite-purple/50 focus:ring-1 focus:ring-elite-purple/50 transition-all"
-                      placeholder="IG / TikTok / Platform"
+                      placeholder={t('contact.form.handlePlaceholder') as string}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="goals" className="block text-sm font-medium text-elite-gray mb-2">
-                      Tell us your goals
+                      {t('contact.form.goalsLabel') as string}
                     </label>
                     <textarea
                       id="goals"
@@ -203,7 +204,7 @@ const Contact = () => {
                       required
                       rows={4}
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-elite-white placeholder-elite-gray/50 focus:outline-none focus:border-elite-purple/50 focus:ring-1 focus:ring-elite-purple/50 transition-all resize-none"
-                      placeholder="What are you looking to achieve?"
+                      placeholder={t('contact.form.goalsPlaceholder') as string}
                     />
                   </div>
 
@@ -215,11 +216,11 @@ const Contact = () => {
                     {isSubmitting ? (
                       <>
                         <div className="w-5 h-5 border-2 border-elite-white/30 border-t-elite-white rounded-full animate-spin" />
-                        <span>Submitting...</span>
+                        <span>{t('contact.form.submitting') as string}</span>
                       </>
                     ) : (
                       <>
-                        <span>Request a Call</span>
+                        <span>{t('contact.form.submit') as string}</span>
                         <Send className="w-5 h-5" />
                       </>
                     )}
