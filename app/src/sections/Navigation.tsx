@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +25,12 @@ const Navigation = () => {
   ];
 
   const scrollToSection = (href: string) => {
+    if (location.pathname !== '/') {
+      navigate(`/${href}`);
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -41,12 +50,12 @@ const Navigation = () => {
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="flex items-center justify-between h-[72px]">
             {/* Logo */}
-            <a
-              href="#"
+            <Link
+              to="/"
               className="font-display text-xl font-bold tracking-wider text-elite-white hover:text-elite-purple transition-colors"
             >
               ELITE
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">

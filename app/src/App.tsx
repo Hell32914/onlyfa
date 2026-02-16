@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navigation from './sections/Navigation';
 import Hero from './sections/Hero';
 import Proof from './sections/Proof';
@@ -6,12 +7,11 @@ import System from './sections/System';
 import Spotlight from './sections/Spotlight';
 import Community from './sections/Community';
 import Contact from './sections/Contact';
-import Privacy from './sections/Privacy';
-import Disclaimer from './sections/Disclaimer';
 import Footer from './sections/Footer';
 
 function App() {
   const mainRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   useEffect(() => {
     // Intersection Observer for scroll animations
@@ -37,6 +37,17 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!location.hash) {
+      return;
+    }
+
+    const element = document.querySelector(location.hash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location]);
+
   return (
     <div ref={mainRef} className="relative min-h-screen bg-elite-black overflow-x-hidden">
       {/* Noise overlay */}
@@ -58,8 +69,6 @@ function App() {
         <Spotlight />
         <Community />
         <Contact />
-        <Privacy />
-        <Disclaimer />
       </main>
 
       <Footer />

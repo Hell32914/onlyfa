@@ -1,14 +1,16 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   const footerLinks = [
-    { label: 'Services', href: '#system' },
-    { label: 'Results', href: '#proof' },
-    { label: 'Community', href: '#community' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Services', href: '/#system' },
+    { label: 'Results', href: '/#proof' },
+    { label: 'Community', href: '/#community' },
+    { label: 'Contact', href: '/#contact' },
   ];
 
   const legalLinks = [
-    { label: 'Privacy Policy', href: '#privacy' },
-    { label: 'Disclaimer', href: '#disclaimer' },
+    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Disclaimer', href: '/disclaimer' },
   ];
 
   return (
@@ -16,12 +18,12 @@ const Footer = () => {
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="space-y-4">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="font-display text-xl font-bold tracking-wider text-elite-white hover:text-elite-purple transition-colors"
             >
               ELITE
-            </a>
+            </Link>
             <p className="text-sm text-elite-gray leading-relaxed">
               V&amp;E Digital Marketing Agency. We build creator businesses with clear strategy, execution, and care.
             </p>
@@ -32,12 +34,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-elite-gray hover:text-elite-white transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -48,12 +50,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {legalLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-elite-gray hover:text-elite-white transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
