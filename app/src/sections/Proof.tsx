@@ -99,7 +99,7 @@ const Proof = () => {
     },
     {
       value: 0.2,
-      startValue: 0.1,
+      startValue: 0.4,
       prefix: t('proof.stats.percentilePrefix') as string,
       suffix: t('proof.stats.percentileSuffix') as string,
       decimals: 1,
