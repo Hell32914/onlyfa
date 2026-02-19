@@ -993,29 +993,29 @@ const translations = {
         line2: 'En imperio',
       },
       subheadline:
-        'Gestion de creadores para creadores que quieren escalar – sin caos. Nosotros manejamos estrategia de promocion, ventas, marketing y monetizacion. Tu creas.',
+        'Gestión para creadores que quieren escalar sin caos. Nos encargamos de la estrategia de promoción, ventas, marketing y monetización. Tú creas.',
       ctaPrimary: 'Postular ahora',
       ctaSecondary: 'Ver como funciona',
       cardOne: {
         title: 'Gestion integral',
         body:
-          'Desde la estrategia de contenido hasta la relacion con fans, cubrimos cada aspecto del crecimiento de tu marca. Nuestro equipo trabaja 24/7 para un rendimiento sostenible.',
+          'Desde la estrategia de contenido hasta la comunicación con los fans, cubrimos todos los aspectos del crecimiento de la marca. Nuestro equipo trabaja 24/7 para garantizar un crecimiento sostenible.',
       },
       cardTwo: {
-        title: 'Casos de estudio',
+        title: 'Casos',
         body:
-          'Compartimos ejemplos transparentes de estrategia y ejecucion. Los resultados varian segun el creador, el mercado y la constancia.',
+          'Mostramos ejemplos transparentes de estrategia y ejecución. Los resultados dependen del creador, del mercado y de la frecuencia.',
       },
       alt: 'Fondo principal',
     },
     proof: {
-      eyebrow: 'Prueba',
+      eyebrow: 'Hechos',
       headline: {
         line1: 'No adivinamos.',
         line2: 'Escalamos.',
       },
       body:
-        'Desde el calendario de contenido hasta las ventas premium, llevamos el lado de negocio para que tu seas la cara de tu marca. Nuestro enfoque basado en analitica de datos impulsa progreso estable y medible con el tiempo.',
+        'Desde un calendario de contenidos hasta costosas ventas adicionales nos encargamos de la parte comercial para que puedas ser la cara de tu marca. Nuestro enfoque en el análisis de datos genera un crecimiento estable y medible a lo largo del tiempo.',
       stats: {
         revenue: 'Ingresos generados por nuestros creadores',
         adSpend: 'Inversion publicitaria gestionada (ROAS 4.8x)',
