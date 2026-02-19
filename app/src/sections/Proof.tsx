@@ -1,21 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import { TrendingUp, DollarSign, Award } from 'lucide-react';
-import CountUp from '../components/CountUp';
 import { useI18n } from '../i18n';
 
 interface StatCardProps {
-  value: number;
-  startValue?: number;
+  value: string;
   label: string;
   icon: React.ReactNode;
   delay: number;
   start: boolean;
-  prefix?: string;
-  suffix?: string;
-  decimals?: number;
 }
 
-const StatCard = ({ value, startValue, label, icon, delay, start, prefix, suffix, decimals }: StatCardProps) => {
+const StatCard = ({ value, label, icon, delay, start }: StatCardProps) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -40,16 +35,9 @@ const StatCard = ({ value, startValue, label, icon, delay, start, prefix, suffix
         </div>
       </div>
       <div className="stat-shimmer">
-        <CountUp
-          value={value}
-          startValue={startValue}
-          prefix={prefix}
-          suffix={suffix}
-          decimals={decimals}
-          start={isVisible}
-          duration={2600}
-          className="font-display text-4xl sm:text-5xl font-black text-elite-white"
-        />
+        <div className="font-display text-4xl sm:text-5xl font-black text-elite-white">
+          {value}
+        </div>
       </div>
       <p className="mt-2 text-sm text-elite-gray">{label}</p>
     </div>
@@ -80,29 +68,17 @@ const Proof = () => {
 
   const stats = [
     {
-      value: 4.4,
-      startValue: 4.2,
-      prefix: '$',
-      suffix: 'M',
-      decimals: 1,
+      value: '$4.2M',
       label: t('proof.stats.revenue') as string,
       icon: <DollarSign className="w-6 h-6 text-elite-purple" />,
     },
     {
-      value: 1.3,
-      startValue: 1.1,
-      prefix: '$',
-      suffix: 'M',
-      decimals: 1,
+      value: '$1.1M',
       label: t('proof.stats.adSpend') as string,
       icon: <TrendingUp className="w-6 h-6 text-elite-purple" />,
     },
     {
-      value: 0.2,
-      startValue: 0.4,
-      prefix: t('proof.stats.percentilePrefix') as string,
-      suffix: t('proof.stats.percentileSuffix') as string,
-      decimals: 1,
+      value: `${t('proof.stats.percentilePrefix') as string}0.4${t('proof.stats.percentileSuffix') as string}`,
       label: t('proof.stats.percentile') as string,
       icon: <Award className="w-6 h-6 text-elite-purple" />,
     },
@@ -148,12 +124,8 @@ const Proof = () => {
                 <StatCard
                   key={stat.label}
                   value={stat.value}
-                  startValue={stat.startValue}
                   label={stat.label}
                   icon={stat.icon}
-                  prefix={stat.prefix}
-                  suffix={stat.suffix}
-                  decimals={stat.decimals}
                   delay={index * 150}
                   start={isVisible}
                 />
@@ -169,7 +141,7 @@ const Proof = () => {
           >
             <div className="relative aspect-[3/4] rounded-3xl overflow-hidden">
               <img
-                src="/girl1.png"
+                src="/girl2.png"
                 alt={t('proof.alt') as string}
                 className="w-full h-full object-cover"
               />
@@ -198,12 +170,8 @@ const Proof = () => {
             <StatCard
               key={stat.label}
               value={stat.value}
-              startValue={stat.startValue}
               label={stat.label}
               icon={stat.icon}
-              prefix={stat.prefix}
-              suffix={stat.suffix}
-              decimals={stat.decimals}
               delay={index * 150 + 300}
               start={isVisible}
             />

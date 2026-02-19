@@ -124,20 +124,12 @@ const Community = () => {
             </div>
           </div>
 
-          {/* Right Images */}
+          {/* Right Image */}
           <div
-            className={`space-y-6 transition-all duration-700 delay-200 ${
+            className={`transition-all duration-700 delay-200 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
             }`}
           >
-            <div className="relative aspect-video rounded-3xl overflow-hidden">
-              <img
-                src="/community-top.jpg"
-                alt={t('community.altTop') as string}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-elite-black/60 to-transparent" />
-            </div>
             <div className="relative aspect-video rounded-3xl overflow-hidden">
               <img
                 src="/community-bottom.jpg"

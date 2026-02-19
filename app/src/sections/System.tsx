@@ -117,7 +117,7 @@ const System = () => {
           >
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
               <img
-                src="/girl2.png"
+                src="/girl1.png"
                 alt={t('system.alt') as string}
                 className="w-full h-full object-cover"
               />
