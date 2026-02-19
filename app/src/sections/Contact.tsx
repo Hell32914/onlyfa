@@ -44,23 +44,28 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://formsubmit.co/vd.agency2024@gmail.com', {
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('handle', formData.handle);
+      payload.append('goals', formData.goals);
+      payload.append('_subject', 'New contact form submission from V&E Marketing Agency');
+      payload.append('_template', 'table');
+      payload.append('_captcha', 'false');
+      payload.append('_replyto', formData.email);
+
+      const response = await fetch('https://formsubmit.co/ajax/vd.agency2024@gmail.com', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          handle: formData.handle,
-          goals: formData.goals,
-          _subject: 'New contact form submission from V&E Marketing Agency',
-          _template: 'table'
-        })
+        body: payload
       });
 
-      if (response.ok) {
+      const result = await response.json().catch(() => null);
+      const isOk = response.ok && (result?.success === true || result?.success === 'true');
+
+      if (isOk) {
         setIsSubmitted(true);
         setFormData({ name: '', email: '', handle: '', goals: '' });
       } else {
