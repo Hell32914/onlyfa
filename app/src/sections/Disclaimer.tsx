@@ -70,7 +70,7 @@ const Disclaimer = () => {
               <h3 className="font-display text-xl sm:text-2xl font-bold text-elite-white mb-2">
                 {t('disclaimer.contact.title') as string}
               </h3>
-              <p className="text-elite-white font-medium">{t('disclaimer.contact.emailLabel') as string} rybalka156@gmail.com</p>
+              <p className="text-elite-white font-medium">{t('disclaimer.contact.emailLabel') as string} vd.agency2024@gmail.com</p>
               <p className="text-elite-white font-medium">{t('disclaimer.contact.telegramLabel') as string} @rosa_flor1</p>
             </div>
           </div>

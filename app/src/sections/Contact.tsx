@@ -44,36 +44,41 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const payload = new FormData();
-      payload.append('name', formData.name);
-      payload.append('email', formData.email);
-      payload.append('handle', formData.handle);
-      payload.append('goals', formData.goals);
-      payload.append('_subject', 'New contact form submission from V&E Marketing Agency');
-      payload.append('_template', 'table');
-      payload.append('_captcha', 'false');
-      payload.append('_replyto', formData.email);
+      // Prepare message for Telegram
+      const message = `🆕 New Contact Form Submission\n\n` +
+        `👤 Name: ${formData.name}\n` +
+        `📧 Email: ${formData.email}\n` +
+        `💬 Handle: ${formData.handle}\n` +
+        `🎯 Goals:\n${formData.goals}`;
 
-      const response = await fetch('https://formsubmit.co/ajax/rybalka156@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json'
-        },
-        body: payload
-      });
+      const telegramBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+      const telegramChatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
-      const result = await response.json().catch(() => null);
-      const isOk = response.ok && (result == null || result?.success === true || result?.success === 'true');
+      // Send to Telegram
+      const telegramResponse = await fetch(
+        `https://api.telegram.org/bot${telegramBotToken}/sendMessage`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            chat_id: telegramChatId,
+            text: message,
+            parse_mode: 'HTML'
+          })
+        }
+      );
 
-      if (isOk) {
+      if (telegramResponse.ok) {
         setIsSubmitted(true);
         setFormData({ name: '', email: '', handle: '', goals: '' });
       } else {
-        alert('Failed to send message. Please try again or contact us directly via email.');
+        alert('Failed to send message. Please try again or contact us directly via Telegram.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('Failed to send message. Please try again or contact us directly via email.');
+      alert('Failed to send message. Please try again or contact us directly via Telegram.');
     } finally {
       setIsSubmitting(false);
     }
@@ -131,7 +136,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-elite-gray">{t('contact.infoLabels.email') as string}</p>
-                  <p className="text-elite-white font-medium">rybalka156@gmail.com</p>
+                  <p className="text-elite-white font-medium">vd.agency2024@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">

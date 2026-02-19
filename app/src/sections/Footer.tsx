@@ -72,7 +72,7 @@ const Footer = () => {
           <div className="space-y-3">
             <h4 className="font-display text-lg font-semibold text-elite-white">{t('footer.contacts') as string}</h4>
             <div className="space-y-2 text-sm text-elite-gray">
-              <p>{t('footer.email') as string}: rybalka156@gmail.com</p>
+              <p>{t('footer.email') as string}: vd.agency2024@gmail.com</p>
               <p>{t('footer.whatsapp') as string}: +380 75 699 95 31</p>
               <p>{t('footer.telegram') as string}: @rosa_flor1</p>
             </div>
