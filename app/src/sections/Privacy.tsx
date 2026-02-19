@@ -99,7 +99,7 @@ const Privacy = () => {
                 {t('privacy.contact.title') as string}
               </h3>
               <p>{t('privacy.contact.p1') as string}</p>
-              <p className="text-elite-white font-medium">{t('privacy.contact.emailLabel') as string} vd.agency2024@gmail.com</p>
+              <p className="text-elite-white font-medium">{t('privacy.contact.emailLabel') as string} rybalka156@gmail.com</p>
               <p className="text-elite-white font-medium">{t('privacy.contact.telegramLabel') as string} @rosa_flor1</p>
             </div>
           </div>

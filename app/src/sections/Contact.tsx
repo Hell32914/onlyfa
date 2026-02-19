@@ -54,7 +54,7 @@ const Contact = () => {
       payload.append('_captcha', 'false');
       payload.append('_replyto', formData.email);
 
-      const response = await fetch('https://formsubmit.co/ajax/vd.agency2024@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/rybalka156@gmail.com', {
         method: 'POST',
         headers: {
           'Accept': 'application/json'
@@ -63,7 +63,7 @@ const Contact = () => {
       });
 
       const result = await response.json().catch(() => null);
-      const isOk = response.ok && (result?.success === true || result?.success === 'true');
+      const isOk = response.ok && (result == null || result?.success === true || result?.success === 'true');
 
       if (isOk) {
         setIsSubmitted(true);
@@ -131,7 +131,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-elite-gray">{t('contact.infoLabels.email') as string}</p>
-                  <p className="text-elite-white font-medium">vd.agency2024@gmail.com</p>
+                  <p className="text-elite-white font-medium">rybalka156@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">

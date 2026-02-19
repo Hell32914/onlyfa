@@ -80,7 +80,7 @@ const About = () => {
               </h3>
               <p>
                 {t('about.contact.emailLabel') as string}{' '}
-                <span className="text-elite-white font-medium">vd.agency2024@gmail.com</span>
+                <span className="text-elite-white font-medium">rybalka156@gmail.com</span>
               </p>
               <p>
                 {t('about.contact.telegramLabel') as string}{' '}
