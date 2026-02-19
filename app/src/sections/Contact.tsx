@@ -52,25 +52,33 @@ const Contact = () => {
         `🎯 Goals:\n${formData.goals}`;
 
       const telegramBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-      const telegramChatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+      const telegramChatIds = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+      
+      // Split chat IDs by comma and trim whitespace
+      const chatIdArray = telegramChatIds.split(',').map((id: string) => id.trim());
 
-      // Send to Telegram
-      const telegramResponse = await fetch(
-        `https://api.telegram.org/bot${telegramBotToken}/sendMessage`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            chat_id: telegramChatId,
-            text: message,
-            parse_mode: 'HTML'
-          })
-        }
+      // Send to all Telegram chats
+      const sendPromises = chatIdArray.map((chatId: string) => 
+        fetch(
+          `https://api.telegram.org/bot${telegramBotToken}/sendMessage`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              chat_id: chatId,
+              text: message,
+              parse_mode: 'HTML'
+            })
+          }
+        )
       );
 
-      if (telegramResponse.ok) {
+      const responses = await Promise.all(sendPromises);
+      const allSuccessful = responses.every(response => response.ok);
+
+      if (allSuccessful) {
         setIsSubmitted(true);
         setFormData({ name: '', email: '', handle: '', goals: '' });
       } else {
