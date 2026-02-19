@@ -169,7 +169,7 @@ const Proof = () => {
           >
             <div className="relative aspect-[3/4] rounded-3xl overflow-hidden">
               <img
-                src="/proof-portrait.jpg"
+                src="/girl1.png"
                 alt={t('proof.alt') as string}
                 className="w-full h-full object-cover"
               />

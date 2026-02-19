@@ -33,7 +33,7 @@ const Spotlight = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/spotlight-portrait.jpg"
+          src="/girl3.png"
           alt={t('spotlight.alt') as string}
           className={`w-full h-full object-cover transition-transform duration-1000 ${
             isVisible ? 'scale-100' : 'scale-110'
