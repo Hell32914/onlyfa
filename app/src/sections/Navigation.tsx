@@ -67,7 +67,7 @@ const Navigation = () => {
               to="/"
               className="font-display text-xl font-bold tracking-wider text-elite-white hover:text-elite-purple transition-colors"
             >
-              ELITE
+              V&E
             </Link>
 
             {/* Desktop Navigation */}

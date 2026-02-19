@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useEffect } from 'react';
 import Navigation from '../sections/Navigation';
 import Footer from '../sections/Footer';
 import AgeGate from '../components/AgeGate';
@@ -8,6 +9,10 @@ interface LegalLayoutProps {
 }
 
 const LegalLayout = ({ children }: LegalLayoutProps) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-elite-black overflow-x-hidden">
       <AgeGate />

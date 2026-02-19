@@ -55,8 +55,10 @@ const About = () => {
               </h3>
               <ul className="list-disc list-inside space-y-1">
                 <li><span className="text-elite-white font-semibold">{t('about.team.items.founders.label') as string}</span> {t('about.team.items.founders.text') as string}</li>
+                <li><span className="text-elite-white font-semibold">{t('about.team.items.trafficManagers.label') as string}</span> {t('about.team.items.trafficManagers.text') as string}</li>
                 <li><span className="text-elite-white font-semibold">{t('about.team.items.content.label') as string}</span> {t('about.team.items.content.text') as string}</li>
-                <li><span className="text-elite-white font-semibold">{t('about.team.items.designers.label') as string}</span> {t('about.team.items.designers.text') as string}</li>
+                <li><span className="text-elite-white font-semibold">{t('about.team.items.salesManagers.label') as string}</span> {t('about.team.items.salesManagers.text') as string}</li>
+                <li><span className="text-elite-white font-semibold">{t('about.team.items.hr.label') as string}</span> {t('about.team.items.hr.text') as string}</li>
                 <li><span className="text-elite-white font-semibold">{t('about.team.items.analysts.label') as string}</span> {t('about.team.items.analysts.text') as string}</li>
               </ul>
             </div>

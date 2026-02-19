@@ -30,7 +30,7 @@ const Footer = () => {
               to="/"
               className="font-display text-xl font-bold tracking-wider text-elite-white hover:text-elite-purple transition-colors"
             >
-              ELITE
+              V&E
             </Link>
             <p className="text-sm text-elite-gray leading-relaxed">
               {t('footer.description') as string}

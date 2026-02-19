@@ -116,10 +116,15 @@ const Spotlight = () => {
             <p className="text-sm text-elite-gray mb-6 leading-relaxed">
               {t('spotlight.cta.body') as string}
             </p>
-            <button className="group w-full sm:w-auto px-6 py-3 text-sm font-semibold text-elite-white neon-border neon-border-hover rounded-xl transition-all duration-300 flex items-center justify-center gap-2">
+            <a 
+              href="https://www.loom.com/share/19341c8fbadc4c31b7e9b7aa46805ea6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group w-full sm:w-auto px-6 py-3 text-sm font-semibold text-elite-white neon-border neon-border-hover rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+            >
               <span>{t('spotlight.cta.button') as string}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

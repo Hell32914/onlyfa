@@ -125,8 +125,8 @@ const System = () => {
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-elite-purple via-elite-pink to-elite-purple opacity-60" />
             </div>
 
-            {/* Floating stat card */}
-            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 glass-card-strong rounded-2xl p-4 sm:p-5">
+            {/* Floating stat card - REMOVED */}
+            {/* <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 glass-card-strong rounded-2xl p-4 sm:p-5">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-elite-pink/20 flex items-center justify-center">
                   <BarChart3 className="w-6 h-6 text-elite-pink" />
@@ -136,7 +136,7 @@ const System = () => {
                   <p className="text-xs text-elite-gray">{t('system.card.subtitle') as string}</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Content */}
