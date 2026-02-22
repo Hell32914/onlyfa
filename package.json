@@ -4,6 +4,14 @@
   "scripts": {
     "postinstall": "npm --prefix app install",
     "build": "npm --prefix app run build",
-    "start": "npm --prefix app run preview -- --host 0.0.0.0 --port $PORT"
+    "start": "npm --prefix app run preview -- --host 0.0.0.0 --port $PORT",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop onlyfa-app",
+    "pm2:restart": "pm2 restart onlyfa-app",
+    "pm2:logs": "pm2 logs onlyfa-app",
+    "pm2:status": "pm2 status"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
   }
 }
