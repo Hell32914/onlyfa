@@ -1,0 +1,9 @@
+# Cron job for server maintenance
+# Add this to your crontab: crontab -e
+# Then paste the following line:
+
+# Every 4 hours - run maintenance script
+0 */4 * * * cd /path/to/onlyfa && bash maintenance.sh >> ./logs/maintenance.log 2>&1
+
+# Daily restart at 3 AM (deep cleanup)
+0 3 * * * cd /path/to/onlyfa && bash deep-clean.sh >> ./logs/maintenance.log 2>&1
