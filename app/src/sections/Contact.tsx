@@ -54,38 +54,63 @@ const Contact = () => {
       const telegramBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
       const telegramChatIds = import.meta.env.VITE_TELEGRAM_CHAT_ID;
       
+      console.log('📨 Telegram Config:', {
+        token: telegramBotToken ? '✓ Present' : '❌ Missing',
+        chatIds: telegramChatIds ? telegramChatIds : '❌ Missing'
+      });
+      
+      if (!telegramBotToken || !telegramChatIds) {
+        console.error('❌ Missing Telegram configuration');
+        alert('Configuration error. Please contact administrator.');
+        setIsSubmitting(false);
+        return;
+      }
+
       // Split chat IDs by comma and trim whitespace
       const chatIdArray = telegramChatIds.split(',').map((id: string) => id.trim());
+      console.log('📋 Chat IDs to send:', chatIdArray);
 
       // Send to all Telegram chats
-      const sendPromises = chatIdArray.map((chatId: string) => 
-        fetch(
+      const sendPromises = chatIdArray.map((chatId: string) => {
+        const payload = {
+          chat_id: chatId,
+          text: message,
+          parse_mode: 'HTML'
+        };
+        console.log(`📤 Sending to chat ${chatId}...`);
+        
+        return fetch(
           `https://api.telegram.org/bot${telegramBotToken}/sendMessage`,
           {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-              chat_id: chatId,
-              text: message,
-              parse_mode: 'HTML'
-            })
+            body: JSON.stringify(payload)
           }
-        )
-      );
+        ).then(response => {
+          if (!response.ok) {
+            console.error(`❌ Failed for chat ${chatId}: ${response.status}`);
+          } else {
+            console.log(`✓ Sent to chat ${chatId}`);
+          }
+          return response;
+        });
+      });
 
       const responses = await Promise.all(sendPromises);
       const allSuccessful = responses.every(response => response.ok);
 
       if (allSuccessful) {
+        console.log('✅ All messages sent successfully');
         setIsSubmitted(true);
         setFormData({ name: '', email: '', handle: '', goals: '' });
       } else {
+        console.error('❌ Some messages failed to send');
         alert('Failed to send message. Please try again or contact us directly via Telegram.');
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('❌ Error submitting form:', error);
       alert('Failed to send message. Please try again or contact us directly via Telegram.');
     } finally {
       setIsSubmitting(false);
