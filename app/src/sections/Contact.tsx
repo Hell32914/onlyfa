@@ -74,8 +74,7 @@ const Contact = () => {
       const sendPromises = chatIdArray.map((chatId: string) => {
         const payload = {
           chat_id: chatId,
-          text: message,
-          parse_mode: 'HTML'
+          text: message
         };
         console.log(`📤 Sending to chat ${chatId}...`);
         
@@ -88,9 +87,10 @@ const Contact = () => {
             },
             body: JSON.stringify(payload)
           }
-        ).then(response => {
+        ).then(async response => {
           if (!response.ok) {
-            console.error(`❌ Failed for chat ${chatId}: ${response.status}`);
+            const errBody = await response.text();
+            console.error(`❌ Failed for chat ${chatId}: ${response.status} — ${errBody}`);
           } else {
             console.log(`✓ Sent to chat ${chatId}`);
           }
