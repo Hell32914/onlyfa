@@ -8,7 +8,6 @@ const Contact = () => {
     name: '',
     email: '',
     handle: '',
-    goals: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -48,8 +47,7 @@ const Contact = () => {
       const message = `🆕 New Contact Form Submission\n\n` +
         `👤 Name: ${formData.name}\n` +
         `📧 Email: ${formData.email}\n` +
-        `💬 Handle: ${formData.handle}\n` +
-        `🎯 Goals:\n${formData.goals}`;
+        `💬 Handle: ${formData.handle}`;
 
       const telegramBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
       const telegramChatIds = import.meta.env.VITE_TELEGRAM_CHAT_ID;
@@ -104,7 +102,7 @@ const Contact = () => {
       if (allSuccessful) {
         console.log('✅ All messages sent successfully');
         setIsSubmitted(true);
-        setFormData({ name: '', email: '', handle: '', goals: '' });
+        setFormData({ name: '', email: '', handle: '' });
       } else {
         console.error('❌ Some messages failed to send');
         alert('Failed to send message. Please try again or contact us directly via Telegram.');
@@ -259,22 +257,6 @@ const Contact = () => {
                       required
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-elite-white placeholder-elite-gray/50 focus:outline-none focus:border-elite-purple/50 focus:ring-1 focus:ring-elite-purple/50 transition-all"
                       placeholder={t('contact.form.handlePlaceholder') as string}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="goals" className="block text-sm font-medium text-elite-gray mb-2">
-                      {t('contact.form.goalsLabel') as string}
-                    </label>
-                    <textarea
-                      id="goals"
-                      name="goals"
-                      value={formData.goals}
-                      onChange={handleChange}
-                      required
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-elite-white placeholder-elite-gray/50 focus:outline-none focus:border-elite-purple/50 focus:ring-1 focus:ring-elite-purple/50 transition-all resize-none"
-                      placeholder={t('contact.form.goalsPlaceholder') as string}
                     />
                   </div>
 
